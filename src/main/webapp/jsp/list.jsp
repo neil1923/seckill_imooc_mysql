@@ -28,7 +28,7 @@
                 <c:forEach items="${list}" var="sk">
                     <tr>
                         <td>${sk.name}</td>
-                        <td>${sk.number}</td>
+                        <td>${sk.num}</td>
                         <td>
                             <fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss" />
                         </td>
@@ -38,7 +38,7 @@
                         <td>
                             <fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
                         </td>
-                        <td><a class="btn btn-info" href="/seckill/${sk.seckillId}/detail" target="_blank">详情</a></td>
+                        <td><a class="btn btn-info" href="/seckill_imooc/seckill/${sk.seckillId}/detail" target="_blank">详情</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -47,14 +47,14 @@ public class SeckillController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/{sevkillId}/detail", method = RequestMethod.GET)
+    @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)
     public String Detail(@PathVariable("seckillId") Long seckillId, Model model){
         if(seckillId == null){
             return "redirect:/seckill/list";
         }
         Seckill seckill = seckillService.getSeckillById(seckillId);
         if (seckill == null){
-            return "forword:/seckilld/list";
+            return "forword:/seckill/list";
         }
         model.addAttribute("seckill",seckill);
         return "detail";
