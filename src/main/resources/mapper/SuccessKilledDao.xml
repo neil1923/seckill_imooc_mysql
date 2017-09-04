@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.SuccessKilledDao">
+
+    <insert id="insertSuccessKilled">
+        <!--“ignore”忽略mysql主键冲突，数据库不会报错，允许插入相同的主键-->
+        <!--但是sql server没有忽略主键重复的方法-->
+        <!--insert ignore-->
+        insert into success_killed(seckill_id, user_phone, state)
+        values(#{seckillId},#{userPhone},0)
+    </insert>
+
+    <select id="qureryByIdAndPhoneWithSeckill" resultType="SuccessKilled">
+        <!-- 利用seckill的id和userPhone查询一条successKilled(购买明细表记录)，并携带了秒杀产品的对象实体-->
+        <!-- 告诉Mybatis把结果映射到SuccessKilled的同时映射Seckill的属性 -->
+        <!-- 可以自由控制sql语句 -->
+        select
+        sk.seckill_id,sk.user_phone,sk.create_time,sk.state,
+        s.seckill_id as "seckill.seckill_id",
+        s.name as "seckill.name",
+        s.number as "seckill.number",
+        s.start_time as "seckill.start_time",
+        s.end_time as "seckill.end_time",
+        s.create_time as "seckill.create_time"
+        from success_killed sk
+        inner join seckill s on sk.seckill_id = s.seckill_id
+        where sk.seckill_id = #{seckillId}
+        and sk.user_phone = #{userPhone}
+    </select>
+
+    <select id="qureryByIdWithSeckills" resultType="SuccessKilled">
+        <!-- 利用seckill的id查询successKilled(购买明细表记录)，并携带了秒杀产品的对象实体-->
+        <!-- 告诉Mybatis把结果映射到SuccessKilled的同时映射Seckill的属性 -->
+        <!-- 可以自由控制sql语句 -->
+        select
+        sk.seckill_id,sk.user_phone,sk.create_time,sk.state,
+        s.seckill_id as "seckill.seckill_id",
+        s.name as "seckill.name",
+        s.number as "seckill.number",
+        s.start_time as "seckill.start_time",
+        s.end_time as "seckill.end_time",
+        s.create_time as "seckill.create_time"
+        from success_killed sk
+        inner join seckill s on sk.seckill_id = s.seckill_id
+        where sk.seckill_id = #{seckillId}
+    </select>
+</mapper>
