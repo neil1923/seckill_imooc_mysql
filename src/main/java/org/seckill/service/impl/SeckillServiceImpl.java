@@ -30,7 +30,7 @@ public class SeckillServiceImpl implements SeckillService{
 
     private Seckill seckill;
 
-    //注入service依赖（可以有：@AutoWired<spring自带的>, @Resource<j2ee规范>, @Inject<j2ee规范>）
+    //注入service依赖（可以有：,@AutoWired<spring自带的> @Resource<j2ee规范>, @Inject<j2ee规范>）
     @Autowired
     private SeckillDao seckillDao;
 
@@ -41,7 +41,8 @@ public class SeckillServiceImpl implements SeckillService{
     private final String slat = "nys1923@VERY@ #COMPITE# @WORDS@ #LIKE#%^LOV^^AZHE^%";
 
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(4,4);
+        // return seckillDao.queryAll(10,10); // sqlserver
+        return seckillDao.queryAll(0,100); // mysql
     }
 
     public Seckill getSeckillById(long seckillId) {
