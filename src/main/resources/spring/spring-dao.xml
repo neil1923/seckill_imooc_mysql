@@ -21,10 +21,15 @@
     <!--**这时候出现神奇的事情：数据库的登录名和密码必须自己手写字符串不能使用${username}，${password}**&ndash;&gt;-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--配置连接池属性-->
-        <property name="driverClass" value="${driver}"/>
-        <property name="jdbcUrl" value="${url}"/>
-        <property name="user" value="sa"/>
-        <property name="password" value="root"/>
+        <!--<property name="driverClass" value="${driver}"/>-->
+        <!--<property name="jdbcUrl" value="${url}"/>-->
+        <!--<property name="user" value="sa"/>-->
+        <!--<property name="password" value="root"/>-->
+
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
         <!--c3p0连接池的私有属性-->
         <property name="maxPoolSize" value="30"/>

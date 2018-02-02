@@ -80,9 +80,9 @@
         //使用EL表达式把jsp中的值 传到js中方法的参数
         //seckill 是从controller中传入的对象
         seckill.detail.init({
-            seckillId:${seckill.seckillId},
-            startTime:${seckill.startTime.time},//毫秒
-            endTime:${seckill.endTime.time}
+                seckillId:${seckill.seckillId},
+                startTime:${seckill.startTime.time},//毫秒
+                endTime:${seckill.endTime.time}
         });
     });
 

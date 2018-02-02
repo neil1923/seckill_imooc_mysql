@@ -15,7 +15,7 @@ import java.util.List;
  * 三个方面：方法定义粒度 + 参数 + 返回类型（return 类型/异常）
  */
 public interface SeckillService {
-
+    
     /**
      * 查询所有的秒杀记录
      * @return

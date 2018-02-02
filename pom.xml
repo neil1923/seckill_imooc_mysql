@@ -65,11 +65,21 @@
     </dependency>
 
     <!--2.数据库驱动相关依赖实现-->
+    <!--2.1 sqlserver-->
+    <!--<dependency>-->
+      <!--<groupId>com.microsoft.sqlserver</groupId>-->
+      <!--<artifactId>sqljdbc4</artifactId>-->
+      <!--<version>4.0</version>-->
+    <!--</dependency>-->
+
+    <!--2.2 mysql-->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
-      <groupId>com.microsoft.sqlserver</groupId>
-      <artifactId>sqljdbc4</artifactId>
-      <version>4.0</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
     </dependency>
+
 
     <!--数据库连接池-->
     <dependency>

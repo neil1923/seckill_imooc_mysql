@@ -23,19 +23,19 @@
     </select>
 
     <!--mysql-->
-    <!--<select id="queryAll" resultType="Seckill">-->
-      <!--SELECT seckill_id,name,number,start_time,end_time,create_time-->
-      <!--FROM seckill-->
-      <!--ORDER BY create_time DESC-->
-      <!--limit #{offset},#{limit}-->
-    <!--</select>-->
+    <select id="queryAll" resultType="Seckill">
+      SELECT seckill_id,name,number,start_time,end_time,create_time
+      FROM seckill
+      ORDER BY create_time DESC
+      limit #{offset},#{limit}
+    </select>
 
     <!--sql server-->
-    <select id="queryAll" resultType="Seckill">
-        SELECT TOP ${offset} seckill_id,name,number,start_time,end_time,create_time
-        FROM seckill where exists
-          ( SELECT TOP ${limit} seckill_id,name,number,start_time,end_time,create_time from seckill)
-        ORDER BY create_time DESC
-    </select>
+    <!--<select id="queryAll" resultType="Seckill">-->
+        <!--SELECT TOP ${offset} seckill_id,name,number,start_time,end_time,create_time-->
+        <!--FROM seckill where exists-->
+          <!--( SELECT TOP ${limit} seckill_id,name,number,start_time,end_time,create_time from seckill)-->
+        <!--ORDER BY create_time DESC-->
+    <!--</select>-->
 
 </mapper>
